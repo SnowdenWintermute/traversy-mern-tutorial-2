@@ -9,7 +9,7 @@ connectDB();
 // init middleware
 app.use(express.json({ extended: false }));
 
-app.get("/", (req, res) => {
+app.get("/:id", (req, res) => {
   res.send("API running");
 });
 
@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/profile", require("./routes/api/profile"));
-app.use("/api/posts", require("./routes/api/posts"));
+app.use("/api/posts", require("./routes/api/posts/posts"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`express server on port ${PORT}`));
